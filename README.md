@@ -1,6 +1,6 @@
 # ABI Web Frontend
 
-This is the frontend for the ABI (Amanot Business Invest) platform, an online business website built using **React**.
+This is the frontend for the ABI (Amanot Business Invest)[Stay Ahead By Investment] platform, an online business website built using **React**.
 
 ## Front-End Development Setup
 
