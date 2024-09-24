@@ -86,11 +86,13 @@ To set up the project, follow the steps below:
 - **Extension `ES7+React/Redux/React-Native snippets`**
 
 - **Handling `unknownatrule` Warnings:**  
-  If you encounter `unknownatrule` warnings, you can configure your editor to ignore them.
+  If you encounter `unknownatrule` warnings, you can configure your editor(settings) to ignore them.
   
 - **Tailwind CSS Intellisense Extension:**  
-  Install the **Tailwind CSS Intellisense** extension in Visual Studio Code to enhance your development experience with autocompletion and syntax support.
+  Install the **Tailwind CSS Intellisense** extension in Visual Studio Code.
 
 ## Summary
 
-This repository contains the frontend code for the ABI online business platform. Follow the provided guides to set up your local environment, configure Tailwind CSS, and start contributing to the project.
+This repository contains the frontend code for the ABI online business platform. Follow the provided guides to set up your local environment. 
+
+## Thank You Devs
