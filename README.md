@@ -77,8 +77,13 @@ To set up the project, follow the steps below:
     ```bash
     npm run dev
     ```
+### React Router Dom
+
+1. npm install react-router-dom
 
 ### Additional Configurations
+
+- **Extension `ES7+React/Redux/React-Native snippets`**
 
 - **Handling `unknownatrule` Warnings:**  
   If you encounter `unknownatrule` warnings, you can configure your editor to ignore them.
