@@ -15,14 +15,14 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   return (
     <header className="bg-[#272c31] py-3 text-white">
-      {/** container mx-auto flex justify-between px-5 */}
+      {/** container mx-auto flex justify-between px-5  #347928*/}
       <nav className="container mx-auto flex justify-between px-5 h-12">
         {/* Logo */}
-        <a href="/" className="relative -translate-y-4 ">
+        <a href="/" className="relative -translate-y-9 ">
           <img
-            src="15.png"
+            src="13.png"
             alt=""
-            className=" h-20 w-auto object-contain  rounded-2xl "
+            className=" h-32 w-auto object-contain  rounded-2xl "
           />
         </a>
         <ul className="sm:flex hidden items-center gap-8">
