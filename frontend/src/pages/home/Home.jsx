@@ -23,14 +23,14 @@ const Home = () => {
 
         {/* Right Side - Buttons */}
         <div className="flex flex-col items-end space-y-4">
-          <button className="bg-[#22cc5d] text-[#0e0e0e] px-4 py-2 h-12 w-40 flex items-center justify-center rounded hover:bg-[#0e0e0e] hover:text-[#22cc5d] font-bold">
+          <button className="bg-[#22cc5d] text-[#0e0e0e] px-4 py-2 h-12 w-40 flex items-center justify-center rounded hover:bg-[#0e0e0e] hover:text-[#22cc5d] font-bold transform transition-transform duration-300 hover:scale-105">
             Invest
           </button>
-          <button className="bg-[#22cc5d] text-[#0e0e0e] px-4 py-2 h-12 w-40 flex items-center justify-center rounded hover:bg-[#0e0e0e] hover:text-[#22cc5d] font-bold">
-            Recharge
-          </button>
-          <button className="bg-[#22cc5d] text-[#0e0e0e] px-4 py-2 h-12 w-40 flex items-center justify-center rounded hover:bg-[#0e0e0e] hover:text-[#22cc5d] font-bold">
+          <button className="bg-[#22cc5d] text-[#0e0e0e] px-4 py-2 h-12 w-40 flex items-center justify-center rounded hover:bg-[#0e0e0e] hover:text-[#22cc5d] font-bold transform transition-transform duration-300 hover:scale-105">
             Withdraw
+          </button>
+          <button className="bg-[#22cc5d] text-[#0e0e0e] px-4 py-2 h-12 w-40 flex items-center justify-center rounded hover:bg-[#0e0e0e] hover:text-[#22cc5d] font-bold transform transition-transform duration-300 hover:scale-105">
+            Recharge
           </button>
         </div>
       </div>
