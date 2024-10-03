@@ -42,7 +42,7 @@ const Home = () => {
           </p>
         </div>
         <div className="grid grid-cols-3 gap-4">
-          {/*Project  */}
+          {/*Project  1*/}
           <div
             className="shadow-lg rounded-lg p-6 text-center opacity-50 group transition-opacity duration-300 hover:opacity-100"
             style={{
@@ -62,7 +62,7 @@ const Home = () => {
             </p>
           </div>
 
-          {/*Project  */}
+          {/*Project  1*/}
           <div
             className="shadow-lg rounded-lg p-6 text-center opacity-50 group transition-opacity duration-300 hover:opacity-100"
             style={{
@@ -81,7 +81,7 @@ const Home = () => {
               consequuntur perspiciatis maiores!
             </p>
           </div>
-          {/*Project  */}
+          {/*Project 2 */}
           <div
             className="shadow-lg rounded-lg p-6 text-center opacity-50 group transition-opacity duration-300 hover:opacity-100"
             style={{
@@ -100,7 +100,7 @@ const Home = () => {
             </p>
           </div>
 
-          {/*Project  */}
+          {/*Project 3 */}
           <div
             className="shadow-lg rounded-lg p-6 text-center opacity-50 group transition-opacity duration-300 hover:opacity-100"
             style={{
@@ -119,7 +119,7 @@ const Home = () => {
               consequuntur perspiciatis maiores!
             </p>
           </div>
-          {/*Project  */}
+          {/*Project 4 */}
           <div
             className="shadow-lg rounded-lg p-6 text-center opacity-50 group transition-opacity duration-300 hover:opacity-100"
             style={{
@@ -139,7 +139,7 @@ const Home = () => {
             </p>
           </div>
 
-          {/*Project  */}
+          {/*Project 5 */}
           <div
             className="shadow-lg rounded-lg p-6 text-center opacity-50 group transition-opacity duration-300 hover:opacity-100"
             style={{

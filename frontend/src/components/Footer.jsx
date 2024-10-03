@@ -1,6 +1,12 @@
 // Footer.jsx
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa"; // Import icons
 
 const Footer = () => {
   return (
@@ -9,27 +15,27 @@ const Footer = () => {
         <div className="flex space-x-6 mb-4">
           <a
             href="#"
-            className="hover:text-[#22cc5d] transition-colors duration-300"
+            className="hover:text-[#22cc5d] transition-colors duration-300 flex items-center"
           >
-            Facebook
+            <FaFacebookF className="mr-1" /> Facebook
           </a>
           <a
             href="#"
-            className="hover:text-[#22cc5d] transition-colors duration-300"
+            className="hover:text-[#22cc5d] transition-colors duration-300 flex items-center"
           >
-            Twitter
+            <FaTwitter className="mr-1" /> Twitter
           </a>
           <a
             href="#"
-            className="hover:text-[#22cc5d] transition-colors duration-300"
+            className="hover:text-[#22cc5d] transition-colors duration-300 flex items-center"
           >
-            Instagram
+            <FaInstagram className="mr-1" /> Instagram
           </a>
           <a
             href="#"
-            className="hover:text-[#22cc5d] transition-colors duration-300"
+            className="hover:text-[#22cc5d] transition-colors duration-300 flex items-center"
           >
-            LinkedIn
+            <FaLinkedinIn className="mr-1" /> LinkedIn
           </a>
         </div>
         <p className="text-center text-sm">
