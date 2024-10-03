@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import NewsTicker from "./components/Newsticker";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <div className="flex-grow">
           <Outlet />
         </div>
-        <footer className="mt-auto">Footer</footer>
+        <Footer />
       </div>
     </>
   );
