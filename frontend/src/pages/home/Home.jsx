@@ -3,12 +3,10 @@ import React from "react";
 const Home = () => {
   return (
     <div
-      className="bg-[#32c768]  container mx-auto mt-8 p-8  "
+      className="bg-[#32c768] container mx-auto mt-8 p-8  "
       style={{
         backgroundImage: "url('doller.jpg')",
         backgroundSize: "cover",
-        // backgroundPosition: "center",
-        // backgroundRepeat: "no-repeat",
       }}
     >
       {/** grid style */}
