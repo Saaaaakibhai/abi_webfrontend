@@ -1,25 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
+}
 
 .active {
   color: rgb(12, 180, 101);
 }
 /* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 5px; /* Width of the scrollbar */
-  background-color: #272c31; /* Background color of the scrollbar */
+  width: 5px;
+  background-color: #272c31;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #22cc5d; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+  background-color: #22cc5d;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #1cb440; /* Change color on hover */
+  background-color: #1cb440;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1c1e21; /* Background color of the scrollbar track */
+  background: #1c1e21;
 }

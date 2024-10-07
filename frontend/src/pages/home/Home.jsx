@@ -12,15 +12,16 @@ const Home = () => {
         // backgroundRepeat: "no-repeat",
       }}
     >
-      {/** grid style */}
-      <div className="grid grid-cols-2 gap-4">
-        {/* Left Side - Box */}
-        <div>
-          <div className="w-72 h-40 text-black font-bold bg-gray-400 flex items-center justify-center text-center text-2xl rounded-lg">
-            $NULL
+      <div>
+        {/** grid style */}
+        <div className="grid grid-cols-2 gap-4">
+          {/* Left Side - Box */}
+          <div>
+            <div className="w-72 h-40 text-black font-bold bg-gray-400 flex items-center justify-center text-center text-2xl rounded-lg">
+              $NULL
+            </div>
+            {/* 20px x 20px box */}
           </div>
-          {/* 20px x 20px box */}
-        </div>
 
           {/* Right Box - Buttons */}
           <div className="flex flex-col items-end space-y-4">
