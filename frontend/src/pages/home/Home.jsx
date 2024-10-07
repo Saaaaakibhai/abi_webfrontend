@@ -35,7 +35,7 @@ const Home = () => {
       </div>
 
       {/* Our Projects Container Grid */}
-      <div className="bg-[#272c31] container mx-auto p-8 border-t-4 border-t-green-400">
+      <div className="bg-[#54687d] container mx-auto p-8 border-t-4 border-t-green-400">
         <div>
           <p className="text-[#22cc5d] text-5xl mb-9 text-center">
             {/* Our Projects */}
@@ -50,10 +50,10 @@ const Home = () => {
               backgroundSize: "cover",
             }}
           >
-            <h3 className="text-[#444444] font-bold text-xl mb-2 transition-opacity duration-300 group-hover:opacity-100">
+            <h3 className="text-[#ffffff] font-bold text-xl mb-2 transition-opacity duration-300 group-hover:opacity-100">
               Irani Bazar
             </h3>
-            <p className="text-[#444444] transition-opacity duration-300 group-hover:opacity-100 opacity-80">
+            <p className="text-[#ffffff] transition-opacity duration-300 group-hover:opacity-100 opacity-80">
               Information about card 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi in odit repellat, explicabo commodi iste maiores ipsum dolor deserunt debitis. In, quam mollitia. Aspernatur quo, illum dolorum consequuntur perspiciatis maiores!
             </p>
           </div>
