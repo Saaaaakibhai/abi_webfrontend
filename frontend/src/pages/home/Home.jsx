@@ -23,7 +23,7 @@ const Home = () => {
             </div>
 
             {/* Right Box - Buttons */}
-            <div className="flex flex-col items-end space-y-4">
+            {/* <div className="flex flex-col items-end space-y-4">
               <button className="bg-[#22cc5d] text-[#0e0e0e] px-4 py-2 h-12 w-40 flex items-center justify-center rounded hover:bg-[#0e0e0e] hover:text-[#22cc5d] font-bold transform transition-transform duration-300 hover:scale-105">
                 Invest
               </button>
@@ -32,6 +32,22 @@ const Home = () => {
               </button>
               <button className="bg-[#22cc5d] text-[#0e0e0e] px-4 py-2 h-12 w-40 flex items-center justify-center rounded hover:bg-[#0e0e0e] hover:text-[#22cc5d] font-bold transform transition-transform duration-300 hover:scale-105">
                 Recharge
+              </button>
+            </div> */}
+            <div className="flex flex-col items-end space-y-4">
+              <button className="relative bg-[#f3f5f4] text-[#0e0e0e] px-4 py-2 h-12 w-40 flex items-center justify-center rounded font-bold overflow-hidden group">
+                <span className="relative z-10">Invest</span>
+                <span className="absolute inset-0 bg-[#22cc5d] transition-all duration-500 ease-out transform scale-x-0 origin-center group-hover:scale-x-100"></span>
+              </button>
+
+              <button className="relative bg-[#f3f5f4] text-[#0e0e0e] px-4 py-2 h-12 w-40 flex items-center justify-center rounded font-bold overflow-hidden group">
+                <span className="relative z-10">Withdraw</span>
+                <span className="absolute inset-0 bg-[#22cc5d] transition-all duration-500 ease-out transform scale-x-0 origin-center group-hover:scale-x-100"></span>
+              </button>
+
+              <button className="relative bg-[#f3f5f4] text-[#0e0e0e] px-4 py-2 h-12 w-40 flex items-center justify-center rounded font-bold overflow-hidden group">
+                <span className="relative z-10">Recharge</span>
+                <span className="absolute inset-0 bg-[#22cc5d] transition-all duration-500 ease-out transform scale-x-0 origin-center group-hover:scale-x-100"></span>
               </button>
             </div>
           </div>
