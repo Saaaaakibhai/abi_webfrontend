@@ -9,8 +9,6 @@ const Home = () => {
         style={{
           backgroundImage: "url('doller.jpg')",
           backgroundSize: "cover",
-          // backgroundPosition: "center",
-          // backgroundRepeat: "no-repeat",
         }}
       >
         <div>
@@ -40,7 +38,7 @@ const Home = () => {
         </div>
         {/**Our projects container Grid */}
       </div>
-      <div className=" bg-[#729cc6] container mx-auto p-8 border-t-4 border-t-green-400">
+      <div className=" bg-[#272c31] container mx-auto p-8 border-t-4 border-t-green-400">
         <div>
           <p className="text-[#22cc5d] text-5xl mb-9 text-center">
             Our Projects
