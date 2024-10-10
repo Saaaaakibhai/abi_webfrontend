@@ -51,7 +51,7 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="md:w-1/2 md:pl-8 flex justify-center">
-            <img src="investment.jpg" alt="" className="w-64 h-64" />
+            <img src="investment.jpg" alt="" className="w-96 h-72" />
           </div>
         </div>
 
@@ -101,7 +101,7 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="md:w-1/2 md:pr-8 flex justify-center">
-            <img src="growth.png" alt="Our Mission" className="w-64 h-64" />
+            <img src="growth.png" alt="Our Mission" className="w-96 h-72" />
           </div>
         </div>
 
@@ -138,7 +138,7 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="md:w-1/2 md:pl-8 flex justify-center">
-            <img src="trust.png" alt="Our Vision" className="w-64 h-64" />
+            <img src="trust.png" alt="Our Vision" className="w-96 h-72" />
           </div>
         </div>
       </div>
