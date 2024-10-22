@@ -15,7 +15,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   return (
-    <header className="bg-[#272c31] py-3 text-white">
+    <header className="bg-[#527853] py-3 text-white">
       {/** container mx-auto flex justify-between px-5  #347928*/}
       <nav className="container mx-auto flex justify-between px-5 h-12">
         {/* Logo */}

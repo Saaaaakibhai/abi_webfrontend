@@ -4,18 +4,18 @@ import React from "react";
 const AboutUs = () => {
   return (
     <div>
-      <div className="bg-[#272c31] container mx-auto py-16 px-8">
-        <h2 className="text-4xl font-bold text-center mb-12 text-[#22cc5d]">
+      <div className="bg-[#f2f9f4] w-full py-16 px-8">
+        <h2 className="text-4xl font-semibold text-center mb-12 text-[#22cc5d] ">
           About Us
         </h2>
 
         {/* Card 1 - Image on Right */}
         <div className="flex flex-col md:flex-row items-center mb-8">
           <div className="md:w-1/2">
-            <h3 className="text-2xl font-bold text-gray-200 mb-4">
+            <h3 className="text-2xl font-bold text-black-200 mb-4">
               About Amanat Business Invest (ABI)
             </h3>
-            <p className="text-gray-200">
+            <p className="text-black-200">
               ABI was founded on the core concept of
               <span className="font-bold text-[#22cc5d]"> Trust</span>,
               <span className="font-bold text-[#22cc5d]"> Transparency</span>{" "}
@@ -58,10 +58,10 @@ const AboutUs = () => {
         {/* Card 2 - Image on Left */}
         <div className="flex flex-col md:flex-row-reverse items-center mb-8">
           <div className="md:w-1/2">
-            <h3 className="text-2xl font-bold text-gray-200 mb-4">
+            <h3 className="text-2xl font-bold text-black-200 mb-4">
               Our Mission
             </h3>
-            <p className="text-gray-200">
+            <p className="text-black-200">
               We believe that everyone deserves a chance to grow their wealth,
               regardless of their financial background. That{"'"}s why we offer
               accessible investment options, starting from as little as{" "}
@@ -108,10 +108,10 @@ const AboutUs = () => {
         {/* Card 3 - Image on Right */}
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2">
-            <h3 className="text-2xl font-bold text-gray-200 mb-4">
+            <h3 className="text-2xl font-bold text-black-200 mb-4">
               How Do You Make Money At Amanat Business Invest (ABI)
             </h3>
-            <p className="text-gray-200">
+            <p className="text-black-200">
               We generate profit through a diversified range of ethical,
               <span className="font-bold text-[#22cc5d]">
                 {"  "}

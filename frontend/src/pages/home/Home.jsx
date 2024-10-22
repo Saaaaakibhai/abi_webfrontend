@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div>
       <div
-        className="bg-[#32c768]  container mx-auto  p-8  "
+        className="bg-[#32c768]  w-full  p-8  "
         style={{
           backgroundImage: "url('doller.jpg')",
           backgroundSize: "cover",
@@ -16,7 +16,7 @@ const Home = () => {
           <div className="grid grid-cols-2 gap-4">
             {/* Left Side - Box */}
             <div>
-              <div className="w-72 h-40 text-black font-bold bg-gray-400 flex items-center justify-center text-center text-2xl rounded-lg">
+              <div className="w-72 h-40 text-black font-bold bg-orange-400 flex items-center justify-center text-center text-2xl rounded-lg">
                 $NULL
               </div>
               {/* 20px x 20px box */}
@@ -54,9 +54,9 @@ const Home = () => {
         </div>
         {/**Our projects container Grid */}
       </div>
-      <div className=" bg-[#272c31] container mx-auto p-8 border-t-4 border-t-green-400">
+      <div className=" bg-[#f2f9f4] w-full p-8 border-t-4 border-t-green-400">
         <div>
-          <p className="text-[#22cc5d] text-5xl mb-9 text-center">
+          <p className="text-[#22cc5d] text-5xl mb-9 text-center font-semibold">
             Our Projects
           </p>
         </div>
