@@ -16,7 +16,7 @@ const Home = () => {
           <div className="grid grid-cols-2 gap-4">
             {/* Left Side - Box */}
             <div>
-              <div className="w-72 h-40 text-black font-bold bg-orange-400 flex items-center justify-center text-center text-2xl rounded-lg">
+              <div className="w-72 h-40 text-black font-bold bg-orange-800 flex items-center justify-center text-center text-2xl rounded-lg">
                 $NULL
               </div>
               {/* 20px x 20px box */}
