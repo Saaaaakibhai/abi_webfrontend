@@ -8,20 +8,29 @@ import Invest from "../pages/home/miniPage/Invest";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/abi_webfrontend/", // Include the base URL here
     element: <App />,
     children: [
       {
-        path: "/",
+        path: "/", // Home route (remains the same)
         element: <Home />,
       },
       {
-        path: "/aboutus",
+        path: "aboutus", // Removed leading slash
         element: <AboutUs />,
       },
-      { path: "/project", element: <Projects /> },
-      { path: "/contact", element: <Contacts /> },
-      { path: "/invest", element: <Invest /> },
+      {
+        path: "project", // Removed leading slash
+        element: <Projects />,
+      },
+      {
+        path: "contact", // Removed leading slash
+        element: <Contacts />,
+      },
+      {
+        path: "invest", // Removed leading slash
+        element: <Invest />,
+      },
     ],
   },
 ]);
