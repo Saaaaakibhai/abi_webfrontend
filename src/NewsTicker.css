@@ -2,7 +2,7 @@
 .ticker-container {
   width: 100%;
   overflow: hidden;
-  background-color: #F9E8D9;
+  background-color: #10ca67;
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
   position: relative;
@@ -11,7 +11,7 @@
 .ticker-text {
   display: inline-block;
   white-space: nowrap;
-  animation: scrollText 40s linear infinite;
+  animation: scrollText 30s linear infinite;
   font-size: 15px;
   font-weight: bold;
   word-spacing: 6px;
