@@ -11,7 +11,7 @@ function App() {
         <Navbar />
         <NewsTicker />
         <div className="flex-grow">
-          <Outlet />
+        <Outlet />
         </div>
         <Footer />
       </div>

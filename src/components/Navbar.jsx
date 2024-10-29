@@ -10,6 +10,7 @@ const navLists = [
   { name: "Invest", path: "/invest" },
   { name: "Projects", path: "/project" },
   { name: "Contact", path: "/contact" },
+
 ];
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
