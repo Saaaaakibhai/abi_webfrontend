@@ -1,0 +1,27 @@
+/* NewsTicker CSS animation for scroll bar */
+.ticker-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: #F9E8D9;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.ticker-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollText 30s linear infinite;
+  font-size: 15px;
+  font-weight: bold;
+  word-spacing: 6px;
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
