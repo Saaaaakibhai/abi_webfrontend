@@ -7,6 +7,7 @@ import Contacts from "../pages/home/miniPage/Contacts";
 import Invest from "../pages/home/miniPage/Invest";
 import Login from "../pages/user/Login";
 import Register from "../pages/user/Register";
+import AdminLayout from "../pages/admin/AdminLayout";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,28 @@ const router = createBrowserRouter([
       { path: "/invest", element: <Invest /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
+      {
+        path: "dashboard",
+        element: <AdminLayout />, //it will be protected by the admin: use private routes here
+        children: [
+          {
+            path: "",
+            element: <DashBoard />,
+          },
+          {
+            path: "Invest",
+            element: <Invest />,
+          },
+          {
+            path: "ManageInvest",
+            element: <ManageInvest />,
+          },
+          {
+            path: "User",
+            element: <User />,
+          },
+        ],
+      },
     ],
   },
 ]);
