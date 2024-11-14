@@ -80,6 +80,7 @@ To set up the project, follow the steps below:
 ### React Router Dom
 
 1. npm install react-router-dom
+2. npm install react-redux
 
 ### Additional Configurations
 
