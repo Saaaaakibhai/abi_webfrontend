@@ -12,6 +12,7 @@ import Login from "../pages/user/Login";
 import Register from "../pages/user/Register";
 import AdminLayout from "../pages/admin/AdminLayout";
 import User from "../pages/admin/adminusers/User";
+import AddProject from "../pages/admin/Componenets/AddProject";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
           { path: "handleinvest", element: <HandleInvest /> },
           { path: "manageinvest", element: <ManageInvest /> },
           { path: "user", element: <User /> },
+          { path: "addproject", element: <AddProject /> },
         ],
       },
     ],
