@@ -40,6 +40,7 @@ const AdminNavigation = () => {
           </li>
           <li>
             <NavLink
+<<<<<<< HEAD
               to="/dashboard/addproject"
               end
               className={({ isActive }) =>
@@ -51,6 +52,8 @@ const AdminNavigation = () => {
           </li>
           <li>
             <NavLink
+=======
+>>>>>>> 18f83c5ed09d32a59168e8a958968d1db14e71d8
               to="/dashboard/handleinvest"
               className={({ isActive }) =>
                 isActive ? "text-blue-600 font-bold" : "text-black"

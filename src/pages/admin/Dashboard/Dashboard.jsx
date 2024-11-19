@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import { useSelector } from "react-redux";
 import { FiUsers } from "react-icons/fi";
@@ -42,3 +43,14 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+=======
+import React from 'react'
+
+const Dashboard = () => {
+  return (
+    <div>Dashboard</div>
+  )
+}
+
+export default Dashboard
+>>>>>>> 18f83c5ed09d32a59168e8a958968d1db14e71d8

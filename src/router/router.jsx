@@ -12,7 +12,10 @@ import Login from "../pages/user/Login";
 import Register from "../pages/user/Register";
 import AdminLayout from "../pages/admin/AdminLayout";
 import User from "../pages/admin/adminusers/User";
+<<<<<<< HEAD
 import AddProject from "../pages/admin/Componenets/AddProject";
+=======
+>>>>>>> 18f83c5ed09d32a59168e8a958968d1db14e71d8
 
 const router = createBrowserRouter([
   {
@@ -34,7 +37,10 @@ const router = createBrowserRouter([
           { path: "handleinvest", element: <HandleInvest /> },
           { path: "manageinvest", element: <ManageInvest /> },
           { path: "user", element: <User /> },
+<<<<<<< HEAD
           { path: "addproject", element: <AddProject /> },
+=======
+>>>>>>> 18f83c5ed09d32a59168e8a958968d1db14e71d8
         ],
       },
     ],
