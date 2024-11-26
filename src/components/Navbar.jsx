@@ -1,55 +1,101 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { MdMenuOpen } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
-// navbar all pages
+import { useDispatch } from 'react-redux';
+import { setUser } from '../features/authSlice'; // Adjust the path as needed
+import { FaUserCircle } from "react-icons/fa"; // Default user icon
+
 const navLists = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/aboutus" },
   { name: "Invest", path: "/invest" },
   { name: "Projects", path: "/project" },
   { name: "Contact", path: "/contact" },
-
 ];
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userImage, setUserImage] = useState(""); // Holds user image URL
+  
+  const dispatch = useDispatch(); // Initialize dispatch
+
+  // Check if the user is logged in when the component mounts
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("user"));
+    if (userData) {
+      setIsAuthenticated(true);
+      setUserImage(userData.profileImage || "https://via.placeholder.com/150");
+    } else {
+      setIsAuthenticated(false);
+    }
+  }, []); // Only run on mount
+
+  // Logout function
+  const logout = () => {
+    // Remove user data from localStorage
+    localStorage.removeItem("user");
+
+    // Dispatch to Redux to clear user state
+    dispatch(setUser(null));
+
+    // Update state to reflect logout
+    setIsAuthenticated(false);
+
+    // Optionally redirect to login page
+    window.location.href = "/login";
+  };
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   return (
     <header className="bg-[#527853] py-3 text-white">
-      {/** container mx-auto flex justify-between px-5  #347928*/}
       <nav className="container mx-auto flex justify-between px-5 h-12">
         {/* Logo */}
-        <a href="/" className="relative -translate-y-9 ">
+        <a href="/" className="relative -translate-y-9">
           <img
             src="13.png"
-            alt=""
-            className=" h-32 w-auto object-contain  rounded-2xl "
+            alt="Logo"
+            className="h-32 w-auto object-contain rounded-2xl"
           />
         </a>
+
+        {/* Desktop menu */}
         <ul className="sm:flex hidden items-center gap-8">
           {navLists.map((list, index) => (
-            <li>
+            <li key={index}>
               <NavLink
-                to={`${list.path}`}
-                className={({ isActive, isPending }) =>
-                  isActive ? "active" : ""
-                }
+                to={list.path}
+                className={({ isActive }) => (isActive ? "active" : "")}
               >
                 {list.name}
               </NavLink>
             </li>
           ))}
           <li>
-            <NavLink to="/login">Login</NavLink>
+            {isAuthenticated ? (
+              <div className="flex items-center space-x-2">
+                <img
+                  src={userImage}
+                  alt="User"
+                  className="w-8 h-8 rounded-full object-cover"
+                />
+                <button onClick={logout} className="text-white">
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <NavLink to="/login">Login</NavLink>
+            )}
           </li>
         </ul>
 
-        {/*Toggle menu for navbar*/}
+        {/* Toggle menu for mobile */}
         <div className="flex items-center sm:hidden">
           <button
             onClick={toggleMenu}
-            className="felx items-center px-3 py-4 bg-[#22cc5d] rounded  text-[#0e0e0e] hover:bg-[#0e0e0e] hover:text-[#22cc5d]  "
+            className="flex items-center px-3 py-4 bg-[#22cc5d] rounded text-[#0e0e0e] hover:bg-[#0e0e0e] hover:text-[#22cc5d]"
           >
             {isMenuOpen ? (
               <IoClose className="size-6" />
@@ -60,24 +106,34 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/*mobile view of menu items */}
+      {/* Mobile view of menu items */}
       {isMenuOpen && (
-        <ul className="fixed top-[108px] left-0 w-full h-auto pb-8 border-b bg-[#22cc5d] text-[#0e0e0e] font-bold shadow-sm z-50">
+        <ul className="fixed top-[108px] left-0 w-full h-auto pb-8 border-b bg-[#22cc5d] text-[#0e0e0e] space-y-5">
           {navLists.map((list, index) => (
-            <li className="mt-5 px-4">
+            <li key={index}>
               <NavLink
-                onClick={() => setIsMenuOpen(false)}
-                to={`${list.path}`}
-                className={({ isActive, isPending }) =>
-                  isActive ? "active" : ""
-                }
+                to={list.path}
+                className={({ isActive }) => (isActive ? "active" : "")}
               >
                 {list.name}
               </NavLink>
             </li>
           ))}
-          <li className="mt-5 px-4">
-            <NavLink to="/login">Login</NavLink>
+          <li>
+            {isAuthenticated ? (
+              <div className="flex items-center space-x-2">
+                <img
+                  src={userImage}
+                  alt="User"
+                  className="w-8 h-8 rounded-full object-cover"
+                />
+                <button onClick={logout} className="text-white">
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <NavLink to="/login">Login</NavLink>
+            )}
           </li>
         </ul>
       )}

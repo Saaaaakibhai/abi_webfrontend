@@ -1,23 +1,35 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // Import Axios
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../features/authSlice'; // Adjust the path as needed
 
 const Login = () => {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch(); // Initialize dispatch
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Make the API call to the backend login route
+      // Use the correct route
       const response = await axios.post('http://localhost:5000/login', { phone, password });
+      
+      // Extract user data from the response
+      const userData = response.data.user;
+
+      // Store user data in local storage
+      localStorage.setItem('user', JSON.stringify(userData));
+
+      // Dispatch user data to Redux store
+      dispatch(setUser(userData));
+
       alert(response.data.message);
-      // Optionally store user data or token and redirect
-      // localStorage.setItem('userToken', response.data.token);
-      // window.location.href = '/dashboard'; // Redirect to another page after successful login
+      // Optionally redirect to the dashboard or another page
+      window.location.href = '/userdashboard';
     } catch (error) {
       console.error("Login failed:", error.response?.data?.message || error.message);
-      alert("Login failed: " + (error.response?.data?.message || error.message));
+      alert("Login failed: " + (error.response?.data?.message || "Server error"));
     }
   };
 
@@ -25,7 +37,7 @@ const Login = () => {
     <div className="flex items-center justify-center min-h-screen login-background">
       <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center text-gray-800">Login</h2>
-        
+
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">Phone Number</label>

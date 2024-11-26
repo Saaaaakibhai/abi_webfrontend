@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  user: null, // Set initial state for user
+  user: null, // Initial state with no user
 };
 
 const authSlice = createSlice({
@@ -10,7 +10,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action) => {
-      state.user = action.payload; // Set user information
+      state.user = action.payload; // Ensure this includes profileImage and other data
     },
     logout: (state) => {
       state.user = null; // Clear user info on logout
