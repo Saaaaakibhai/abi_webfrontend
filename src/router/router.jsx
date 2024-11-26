@@ -40,7 +40,6 @@ const router = createBrowserRouter([
           { path: "manageinvest", element: <ManageInvest /> },
           { path: "user", element: <User /> },
           { path: "addproject", element: <AddProject /> },
-
         ],
       },
       {
