@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import axios from 'axios';
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    nid: '',
+    first_name: '',
+    last_name: '',
+    email_id: '',
+    phone_no: '',
+    nid_no: '',
     address: '',
     password: '',
-    confirmPassword: ''
+    retypepassword: ''
   });
-  
+
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
@@ -27,16 +28,24 @@ const Register = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (formData.password !== formData.confirmPassword) {
+    if (formData.password !== formData.retypepassword) {
       alert("Passwords do not match.");
       return;
     }
 
-    // Add registration logic here (e.g., form validation, API calls)
-    console.log("Registration Data:", formData);
+    try {
+      // Post request to backend route '/register'
+      const response = await axios.post('http://localhost:5000/register', formData);
+      alert(response.data.message);
+      // Optional: Redirect to login after successful registration
+      window.location.href = './login';
+    } catch (error) {
+      console.error("Registration failed:", error.response?.data?.message || error.message);
+      alert("Registration failed: " + (error.response?.data?.message || error.message));
+    }
   };
 
   return (
@@ -50,8 +59,8 @@ const Register = () => {
             <label className="block text-sm font-medium text-gray-700">First Name</label>
             <input
               type="text"
-              name="firstName"
-              value={formData.firstName}
+              name="first_name"
+              value={formData.first_name}
               onChange={handleChange}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-100"
@@ -64,8 +73,8 @@ const Register = () => {
             <label className="block text-sm font-medium text-gray-700">Last Name</label>
             <input
               type="text"
-              name="lastName"
-              value={formData.lastName}
+              name="last_name"
+              value={formData.last_name}
               onChange={handleChange}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-100"
@@ -78,8 +87,8 @@ const Register = () => {
             <label className="block text-sm font-medium text-gray-700">Email</label>
             <input
               type="email"
-              name="email"
-              value={formData.email}
+              name="email_id"
+              value={formData.email_id}
               onChange={handleChange}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-100"
@@ -92,8 +101,8 @@ const Register = () => {
             <label className="block text-sm font-medium text-gray-700">Phone</label>
             <input
               type="tel"
-              name="phone"
-              value={formData.phone}
+              name="phone_no"
+              value={formData.phone_no}
               onChange={handleChange}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-100"
@@ -106,8 +115,8 @@ const Register = () => {
             <label className="block text-sm font-medium text-gray-700">NID Number</label>
             <input
               type="text"
-              name="nid"
-              value={formData.nid}
+              name="nid_no"
+              value={formData.nid_no}
               onChange={handleChange}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-100"
@@ -157,8 +166,8 @@ const Register = () => {
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
-                name="confirmPassword"
-                value={formData.confirmPassword}
+                name="retypepassword"
+                value={formData.retypepassword}
                 onChange={handleChange}
                 required
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-100"

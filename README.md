@@ -81,6 +81,9 @@ To set up the project, follow the steps below:
 
 1. npm install react-router-dom
 2. npm install react-redux
+## Install Axios 
+
+1. npm install axios
 
 ### Additional Configurations
 

@@ -13,6 +13,11 @@ import Register from "../pages/user/Register";
 import AdminLayout from "../pages/admin/AdminLayout";
 import User from "../pages/admin/adminusers/User";
 import AddProject from "../pages/admin/Componenets/AddProject";
+import UserLayout from "../pages/user/UserLayout";
+import Userdashboard from "../pages/user/UserDashboard/Userdashboard";
+import ProfileInfo from "../pages/user/UserComponenets/ProfileInfo";
+import OngoingProject from "../pages/user/UserComponenets/OngoingProject";
+import CompletedProject from "../pages/user/UserComponenets/CompletedProject";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +41,16 @@ const router = createBrowserRouter([
           { path: "user", element: <User /> },
           { path: "addproject", element: <AddProject /> },
 
+        ],
+      },
+      {
+        path: "/userdashboard",
+        element: <UserLayout />, // Parent layout for all admin pages
+        children: [
+          { path: "", element: <Userdashboard/> },
+          { path: "profileinfo", element: <ProfileInfo /> },
+          { path: "ongoingproject", element: <OngoingProject /> },
+          { path: "completedproject", element: <CompletedProject /> },
         ],
       },
     ],

@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
+import axios from 'axios'; // Import Axios
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add login logic here (e.g., form validation, API calls)
-    console.log("Username:", username, "Password:", password);
+
+    try {
+      // Make the API call to the backend login route
+      const response = await axios.post('http://localhost:5000/login', { phone, password });
+      alert(response.data.message);
+      // Optionally store user data or token and redirect
+      // localStorage.setItem('userToken', response.data.token);
+      // window.location.href = '/dashboard'; // Redirect to another page after successful login
+    } catch (error) {
+      console.error("Login failed:", error.response?.data?.message || error.message);
+      alert("Login failed: " + (error.response?.data?.message || error.message));
+    }
   };
 
   return (
@@ -17,14 +28,14 @@ const Login = () => {
         
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Username</label>
+            <label className="block text-sm font-medium text-gray-700">Phone Number</label>
             <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              type="tel"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-              placeholder="Enter your username"
+              placeholder="Enter your phone number"
             />
           </div>
 
@@ -42,12 +53,11 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full px-4 py-2 font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
           >
-            Sign In
+            Login
           </button>
         </form>
-
         <p className="text-sm text-center text-gray-600">
           Don't have an account? <a href="/register" className="text-green-500 hover:underline">Sign up</a>
         </p>
