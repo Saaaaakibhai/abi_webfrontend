@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-
 const Userdashboard = () => {
   const [activeTab, setActiveTab] = useState('Recharge'); // Default tab
-
   // Dummy data for demonstration
   const data = {
     Recharge: {

@@ -59,7 +59,7 @@ const ProfileInfo = () => {
             className="w-full h-48 object-cover rounded-md"
           />
           <button className="absolute bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-md">
-            Update Cover Photo
+            Update Your Cover Photo
           </button>
         </div>
 
