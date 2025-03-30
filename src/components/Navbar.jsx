@@ -50,7 +50,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="bg-[#527853] py-3 text-white">
+    <header className="bg-[#185519] py-3 text-white">
       <nav className="container mx-auto flex justify-between px-5 h-12">
         {/* Logo */}
         <a href="/" className="relative -translate-y-9">
