@@ -11,17 +11,22 @@ const Register = () => {
     nid_no: '',
     address: '',
     password: '',
-    retypepassword: ''
+    retypepassword: '',
   });
 
+  const [photo, setPhoto] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
+  };
+
+  const handlePhotoChange = (e) => {
+    setPhoto(e.target.files[0]);
   };
 
   const togglePasswordVisibility = () => {
@@ -32,19 +37,25 @@ const Register = () => {
     e.preventDefault();
 
     if (formData.password !== formData.retypepassword) {
-      alert("Passwords do not match.");
+      alert('Passwords do not match.');
       return;
     }
 
     try {
-      // Post request to backend route '/register'
-      const response = await axios.post('http://localhost:5000/register', formData);
+      const formDataObj = new FormData();
+      Object.keys(formData).forEach((key) => {
+        formDataObj.append(key, formData[key]);
+      });
+      if (photo) formDataObj.append('photo', photo);
+
+      const response = await axios.post('http://localhost:5000/register', formDataObj, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
       alert(response.data.message);
-      // Optional: Redirect to login after successful registration
       window.location.href = './login';
     } catch (error) {
-      console.error("Registration failed:", error.response?.data?.message || error.message);
-      alert("Registration failed: " + (error.response?.data?.message || error.message));
+      console.error('Registration failed:', error.response?.data?.message || error.message);
+      alert('Registration failed: ' + (error.response?.data?.message || error.message));
     }
   };
 
@@ -142,7 +153,7 @@ const Register = () => {
             <label className="block text-sm font-medium text-gray-700">Password</label>
             <div className="relative">
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? 'text' : 'password'}
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
@@ -165,7 +176,7 @@ const Register = () => {
             <label className="block text-sm font-medium text-gray-700">Retype Password</label>
             <div className="relative">
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? 'text' : 'password'}
                 name="retypepassword"
                 value={formData.retypepassword}
                 onChange={handleChange}
@@ -181,6 +192,18 @@ const Register = () => {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
             </div>
+          </div>
+
+          {/* Photo Upload */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Photo</label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handlePhotoChange}
+              required
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-100"
+            />
           </div>
 
           {/* Submit Button */}

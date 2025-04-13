@@ -9,7 +9,6 @@ import glass from '../../../image/glass.jpg';
 import raincoat from '../../../image/raincoat.jpg';
 import bike from '../../../image/bike.jpg';
 
-
 const projects = [
   {
     id: 1,
@@ -78,7 +77,7 @@ const projects = [
 
 const CompletedProject = () => {
   return (
-    <div className="bg-gray-200 min-h-screen w-full p-6">
+    <div className="bg-green-200 min-h-screen w-full p-6">
       <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">
         Completed Projects
       </h1>
@@ -86,7 +85,7 @@ const CompletedProject = () => {
         {projects.map((project) => (
           <div
             key={project.id}
-            className="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
+            className="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-lg transition-transform transform hover:-translate-y-3 hover:scale-105 duration-300"
           >
             <img
               src={project.photo}
