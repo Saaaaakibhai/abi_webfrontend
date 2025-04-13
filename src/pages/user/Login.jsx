@@ -6,27 +6,23 @@ import { setUser } from '../../features/authSlice'; // Adjust the path as needed
 const Login = () => {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
-  const dispatch = useDispatch(); // Initialize dispatch
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Use the correct route
       const response = await axios.post('http://localhost:5000/login', { phone, password });
-      
-      // Extract user data from the response
       const userData = response.data.user;
 
-      // Store user data in local storage
+      // Store user data in localStorage
       localStorage.setItem('user', JSON.stringify(userData));
 
       // Dispatch user data to Redux store
       dispatch(setUser(userData));
 
       alert(response.data.message);
-      // Optionally redirect to the dashboard or another page
-      window.location.href = '/userdashboard';
+      window.location.href = '/userdashboard'; // Redirect to the user dashboard
     } catch (error) {
       console.error("Login failed:", error.response?.data?.message || error.message);
       alert("Login failed: " + (error.response?.data?.message || "Server error"));
