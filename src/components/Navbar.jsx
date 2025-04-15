@@ -44,17 +44,13 @@ const Navbar = () => {
 
   return (
     <header className="bg-[#185519] py-3 text-white">
-      <nav className="container mx-auto flex justify-between items-center px-5">
+      <nav className="container mx-auto flex justify-between px-5 h-12">
         {/* Logo */}
-        <a href="/" className="flex items-center">
+        <a href="/" className="relative -translate-y-9">
         <img
           src="13.png"
           alt="Logo"
-          className="custom-logo-size object-contain rounded-lg"
-          style={{
-            height: '50px',  // Set the height to your desired value
-            width: '100px',   // Maintain aspect ratio
-          }}
+          className="h-32 w-auto object-contain rounded-2xl"
         />
       </a>
 
