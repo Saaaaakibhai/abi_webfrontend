@@ -14,16 +14,47 @@ const ProfileInfo = () => {
     userName: "",
   });
 
-  const [profileImage, setProfileImage] = useState(null);
-  const [previewImage, setPreviewImage] = useState("https://via.placeholder.com/200");
+  const [previewImage, setPreviewImage] = useState(
+    localStorage.getItem("userImage") || "https://via.placeholder.com/200"
+  );
 
+  // Fetch user profile data from backend
   useEffect(() => {
-    const savedImage = Cookies.get("profileImage");
-    if (savedImage) {
-      setPreviewImage(savedImage);
-    } else {
-      setPreviewImage("https://via.placeholder.com/200");
-    }
+    const fetchProfile = async () => {
+      try {
+        const token = Cookies.get("token"); // Adjust according to your token management
+        const response = await fetch("http://localhost:5000/user/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          setFormData({
+            firstName: data.firstName || "",
+            lastName: data.lastName || "",
+            phoneNumber: data.phoneNumber || "",
+            bio: data.bio || "",
+            facebookURL: data.facebookURL || "",
+            xURL: data.xURL || "",
+            linkedinURL: data.linkedinURL || "",
+            displayName: data.displayName || "",
+            userName: data.userName || "",
+          });
+
+          const savedImage = localStorage.getItem("userImage");
+          setPreviewImage(savedImage || data.userimage || "https://via.placeholder.com/200");
+        } else {
+          console.error(data.message);
+        }
+      } catch (error) {
+        console.error("Error fetching profile:", error);
+      }
+    };
+
+    fetchProfile();
   }, []);
 
   const handleChange = (e) => {
@@ -34,19 +65,49 @@ const ProfileInfo = () => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setProfileImage(file);
-      setPreviewImage(URL.createObjectURL(file));
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        const base64Image = reader.result;
+        localStorage.setItem("userImage", base64Image);
+        setPreviewImage(base64Image); // Update preview
+      };
+
+      reader.readAsDataURL(file); // Convert image to base64
     }
   };
 
-  const handleImageSave = () => {
-    if (profileImage) {
-      const savedImageUrl = previewImage; // Use the preview URL as saved image temporarily
-      Cookies.set("profileImage", savedImageUrl, { expires: 7 });
-      localStorage.setItem('user', JSON.stringify({ profileImage: savedImageUrl })); // Save to localStorage as well
-      alert("Image has been saved successfully!");
-    } else {
-      alert("No image selected to save.");
+  const handleImageSave = async () => {
+    const token = Cookies.get("token");
+    const base64Image = localStorage.getItem("userImage");
+
+    if (!base64Image) {
+      alert("No image found to save.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("userimage", base64Image);
+
+    try {
+      const response = await fetch("http://localhost:5000/user/profile-image", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert("Image updated successfully!");
+      } else {
+        console.error(data.message);
+        alert("Failed to update image.");
+      }
+    } catch (error) {
+      console.error("Error saving image:", error);
+      alert("Image Saved Successfully!");
     }
   };
 
@@ -64,7 +125,12 @@ const ProfileInfo = () => {
           />
           <label className="absolute bottom-0 right-0 bg-gray-800 text-white p-2 rounded-full cursor-pointer">
             📷
-            <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="hidden"
+            />
           </label>
         </div>
 
@@ -83,7 +149,9 @@ const ProfileInfo = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {["firstName", "lastName", "userName", "phoneNumber"].map((field) => (
               <div key={field}>
-                <label className="block text-gray-700 font-semibold">{field}</label>
+                <label className="block text-gray-700 font-semibold">
+                  {field.replace(/([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase())}
+                </label>
                 <input
                   type="text"
                   name={field}

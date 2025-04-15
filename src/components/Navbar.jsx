@@ -21,12 +21,13 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // Fetch profile image from localStorage or Cookies
+    const storedUserImage = localStorage.getItem("userImage");
     const profileImageFromCookie = Cookies.get("profileImage");
-    const userFromLocalStorage = localStorage.getItem('user');
-    if (profileImageFromCookie || userFromLocalStorage) {
+
+    if (storedUserImage || profileImageFromCookie) {
       setIsAuthenticated(true);
-      const userData = JSON.parse(userFromLocalStorage);
-      setUserImage(userData?.profileImage || profileImageFromCookie);
+      setUserImage(storedUserImage || profileImageFromCookie);
     }
   }, []);
 
@@ -34,25 +35,31 @@ const Navbar = () => {
 
   const handleLogout = () => {
     Cookies.remove("profileImage");
-    localStorage.removeItem('user');
-    dispatch(setUser(null)); // Dispatch a logout action to Redux store
+    localStorage.removeItem("userImage");
+    dispatch(setUser(null)); // Dispatch logout action
     setIsAuthenticated(false);
     setUserImage("https://via.placeholder.com/150");
-    window.location.href = '/login'; // Redirect to the login page
+    window.location.href = "/login"; // Redirect to login page
   };
 
   return (
     <header className="bg-[#185519] py-3 text-white">
-      <nav className="container mx-auto flex justify-between px-5 h-12">
-        <a href="/" className="relative -translate-y-9">
-          <img
-            src="13.png"
-            alt="Logo"
-            className="h-32 w-auto object-contain rounded-2xl"
-          />
-        </a>
+      <nav className="container mx-auto flex justify-between items-center px-5">
+        {/* Logo */}
+        <a href="/" className="flex items-center">
+        <img
+          src="13.png"
+          alt="Logo"
+          className="custom-logo-size object-contain rounded-lg"
+          style={{
+            height: '50px',  // Set the height to your desired value
+            width: '100px',   // Maintain aspect ratio
+          }}
+        />
+      </a>
 
-        <ul className="sm:flex hidden items-center gap-8">
+        {/* Desktop Navigation */}
+        <ul className="hidden sm:flex items-center gap-8">
           {navLists.map((list, index) => (
             <li key={index}>
               <NavLink
@@ -88,15 +95,55 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <div className="flex items-center sm:hidden">
+        {/* Mobile Menu Toggle */}
+        <div className="sm:hidden">
           <button
             onClick={toggleMenu}
             className="flex items-center px-3 py-4 bg-[#22cc5d] rounded text-[#0e0e0e] hover:bg-[#0e0e0e] hover:text-[#22cc5d]"
           >
-            {isMenuOpen ? <IoClose className="size-6" /> : <MdMenuOpen className="size-6" />}
+            {isMenuOpen ? <IoClose size={24} /> : <MdMenuOpen size={24} />}
           </button>
         </div>
       </nav>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <ul className="sm:hidden flex flex-col items-center bg-[#185519] text-white py-4 space-y-3">
+          {navLists.map((list, index) => (
+            <li key={index}>
+              <NavLink
+                to={list.path}
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                {list.name}
+              </NavLink>
+            </li>
+          ))}
+          <li>
+            {isAuthenticated ? (
+              <div className="flex flex-col items-center space-y-3">
+                <NavLink to="/userdashboard">
+                  <img
+                    src={userImage}
+                    alt="User"
+                    className="w-12 h-12 rounded-full object-cover cursor-pointer"
+                  />
+                </NavLink>
+                <button
+                  onClick={handleLogout}
+                  className="text-sm text-red-500 hover:text-red-700"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <NavLink to="/login" className="text-sm hover:underline">
+                Login
+              </NavLink>
+            )}
+          </li>
+        </ul>
+      )}
     </header>
   );
 };
