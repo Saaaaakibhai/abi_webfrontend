@@ -210,8 +210,8 @@ const Home = () => {
       <div className="bg-[#32c768] w-full p-8" style={{ backgroundImage: "url('doller.jpg')", backgroundSize: "cover" }}>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <div className="w-72 h-40 text-black font-bold bg-orange-800 flex items-center justify-center text-center text-2xl rounded-lg">
-              0 ৳
+            <div className="w-72 h-40 text-black font-bold bg-orange-300 flex items-center justify-center text-center text-2xl rounded-lg">
+              5000 ৳
             </div>
           </div>
 
@@ -365,19 +365,19 @@ const Home = () => {
           </div>
         </div>
         <div>
-          <p className="text-[#22cc5d] text-5xl mb-9 text-center font-semibold">
+          <p className="text-[#22cc5d] text-5xl text-center font-semibold">
             <br />
            Choose The Right Path Now
           </p>
         </div>
-        <div className="bg-[#f2f9f4] py-16 flex justify-center items-center">
+        <div className="bg-[#f2f9f4] flex justify-center items-center">
         <div className="w-1/2 max-w-lg">
           <Player
             autoplay
             loop
             src= {anima} // Adjust the path as needed
-            style={{ height: "300px", width: "300px" }}
-          />
+            style={{ height: "500px", width: "500px" }}
+            />
           <h3 className="text-center text-2xl font-semibold mt-6 text-gray-800">
             Grow Your Business with Us!
           </h3>

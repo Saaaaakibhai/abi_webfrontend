@@ -1,11 +1,15 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import { Player } from "@lottiefiles/react-lottie-player";
+import anima from "../../../assets/growth.json"; 
+import anima2 from "../../../assets/growth02.json";
+import anima3 from "../../../assets/growth03.json";
 
 const AboutUs = () => {
   return (
     <div>
       <div className="bg-[#f2f9f4] w-full py-16 px-8">
-        <h2 className="text-4xl font-semibold text-center mb-12 text-[#22cc5d] ">
+        <h2 className="text-4xl font-semibold text-center text-[#22cc5d] ">
           About Us
         </h2>
 
@@ -50,9 +54,12 @@ const AboutUs = () => {
               financial future.
             </p>
           </div>
-          <div className="md:w-1/2 md:pl-8 flex justify-center">
-            <img src="investment.jpg" alt="" className="w-96 h-72" />
-          </div>
+          <Player
+                      autoplay
+                      loop
+                      src= {anima3} // Adjust the path as needed
+                      style={{ height: "500px", width: "500px" }}
+          />
         </div>
 
         {/* Card 2 - Image on Left */}
@@ -100,9 +107,12 @@ const AboutUs = () => {
               <span className="font-bold text-[#22cc5d]"> shared sucess</span>.
             </p>
           </div>
-          <div className="md:w-1/2 md:pr-8 flex justify-center">
-            <img src="growth.png" alt="Our Mission" className="w-96 h-72" />
-          </div>
+          <Player
+                      autoplay
+                      loop
+                      src= {anima} // Adjust the path as needed
+                      style={{ height: "500px", width: "500px" }}
+          />
         </div>
 
         {/* Card 3 - Image on Right */}
@@ -137,9 +147,12 @@ const AboutUs = () => {
               you need any further adjustments!
             </p>
           </div>
-          <div className="md:w-1/2 md:pl-8 flex justify-center">
-            <img src="trust.png" alt="Our Vision" className="w-96 h-72" />
-          </div>
+          <Player
+                      autoplay
+                      loop
+                      src= {anima2} // Adjust the path as needed
+                      style={{ height: "500px", width: "500px" }}
+          />
         </div>
       </div>
     </div>

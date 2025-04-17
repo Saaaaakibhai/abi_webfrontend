@@ -126,10 +126,18 @@ const AddProject = () => {
             className="w-full p-3 border border-gray-300 rounded-lg"
           >
             <option value="">Select category</option>
+            <option value="fashion">Farming</option>
+            <option value="land">Land</option>
+            <option value="gold">Gold</option>
             <option value="fashion">Fashion</option>
             <option value="technology">Technology</option>
             <option value="real-estate">Real Estate</option>
             <option value="education">Education</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="food">Food</option>
+            <option value="transportation">Transportation</option>
+            <option value="entertainment">Entertainment</option>
+            
           </select>
         </div>
 
