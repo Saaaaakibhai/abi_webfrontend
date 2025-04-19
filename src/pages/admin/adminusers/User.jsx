@@ -22,7 +22,7 @@ const User = () => {
 
   // Count the number of accounts created on each date
   creationDates.forEach((date) => {
-    dateCount[date] = (dateCount[date] || 0) + 1;
+    dateCount[date] = (dateCount[date] || 0) + 4;
   });
 
   // Sort the dates
